@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+  oscar:
+    name: oscar
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
+
+services:
+  apache:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      oscar:
+        ipv4_address: 172.21.0.4
